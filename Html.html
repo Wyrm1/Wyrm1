@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+<!--[Name in tab]-->
+	<title>Wyrm</title>
+<!--[icon in tab]-->
+	<link rel="icon" href="icon.png">
+<!--[Reference to stylesheet]-->
+	<link rel="stylesheet" href="stylesheet.css"> 
+<!--[define character set]-->
+	<meta charset="UTF-8">
+<!--[allows browser to auto-set view width]-->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+</head>																<!-- NEEDS: story -->
+
+<body>							
+	<!--<div id="game">-->
+		<div id="darken"></div>
+	
+	
+	
+	
+		<header>
+			<div class="nav-btn">										<!--[Navigation buttons at top of the screen]-->
+				<button class="navButton active" style="flex-grow:1" onclick="navPage(event, 'homePage')">Home</button>
+				<button class="navButton" id="researchTab" style="flex-grow:1; display:none" onclick="navPage(event, 'researchPage')">Research</button>
+				<button class="navButton" id="engineeringTab" style="flex-grow:1; display:none" onclick="navPage(event, 'engineeringPage')">Engineering</button>
+				<button class="navButton" id="assaultTab" style="flex-grow:1; display:none" onclick="navPage(event, 'deployPage')">Assault</button>
+				<button id="options" onclick="navPage(event, 'options')">Options</button>
+			</div>
+		</header>
+		
+		
+		<div id="homePage" class="navpage" style="display:block">		<!--[View info and advance story here]-->
+			<div class="home-side">										<!--[resource counters]-->
+				<h1>Buttons</h1>										<!-- currently in dev -->
+				<button class="fullButton" onclick="upgradeNav(event, 'researchTab')" style="display:block">Clear Research Labs</button>
+				<button class="fullButton" onclick="upgradeNav(event, 'engineeringTab')" style="display:block">Repair Old Factory</button>
+				<button class="fullButton" onclick="upgradeNav(event, 'assaultTab')" style="display:block">Fire up War Machines</button>
+				<button class="fullButton" onclick="research.income++" style="display:block">Faster research</button>
+			</div>
+			
+			
+			<main class="home-mid">										<!--[Chat menu]-->
+				<div id="text-box">
+				</div>
+				
+				<div id="text-select">									<!--[text selection menu.]-->
+					<button onclick="toggleTextOptions()" id="textSelectButton">Reply...</button>-
+					<div id="textOptions" class="textOptions">			<!-- Need to allow for auto-customization -->
+						<button onclick="sendText('dragonText', 'Test')">Test</button>
+						<button onclick="sendText('dragonText', 'Hello')">Hello</button>
+						<button onclick="sendText('dragonText', 'zzz')">Sarcastic</button> 
+					</div>
+				</div>
+			</main>
+			
+			<div class="home-side">
+				<div class="home-terminal">
+					<p>Dragon > </p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="researchPage" class="navpage" style="display:none">	<!--[research and upgrade tech here]-->
+			
+			<main class="res-mid">										<!--[tech 'tree']-->
+				<h1>Research center</h1>
+			</main>
+			
+			<div class="res-side">										<!-- NEEDS: click-and-drag scrolling, clickable buttons, connected unlocks, multiple tabs, 60/40 panels -->
+				<h1>Research</h1>										<!-- To unlock each page you must complete X upgrades from previous page -->
+				<p>This is where you develop new technology</p>			<!--[research info]-->
+			</div>
+			
+		</div>
+		
+		<div id="engineeringPage" class="navpage" style="display:none">	<!--[Build and customize suits here]-->
+			<div class="eng-side">										<!--[Current suit info]-->
+				<h1>Engineering</h1>									<!-- NEEDS: calculations of current stats -->
+				<p>This is where you add new tech to suits</p>
+			</div>
+			
+			<main class="eng-mid">										<!--[suit GUI. drag and drop parts onto suit here]-->
+				<h1>Center</h1>											<!-- NEEDS: background, drag/drop code, lower suit selection panel -->
+			</main>
+			
+			<div class="eng-side">										<!--[parts selection]-->
+			</div>														<!-- NEEDS: parts, drag/drop code, lower parts description panel -->
+		</div>
+		
+		<div id="deployPage" class="navpage" style="display:none">		<!--[deploy suits and respond to threats here]-->
+			<div class="dpl-side">										<!-- Need to figure out good combat system. Could use dark room system -->
+				<h1>Assault</h1>
+				<p>This is where you lead attacks on villains and endbringers</p>
+			</div>
+			
+			<main class="dpl-mid">
+				<h1>Assault</h1>
+			</main>
+			
+			<div class="dpl-side">
+			</div>
+		</div>
+		<!--
+		<div id="options" class="navpage" style="display:none">			<!--[Change options and themes here]->
+			<div class="home-side">										<!-- NEEDS: save system, different themes, other options ->
+				<h1>Statistics</h1>										<!-- can just open up popup, rather than a full-screen display ->
+				<p>stats...</p>
+			</div>
+			
+			<main class="home-mid">
+			<h1>Options</h1>
+			<p>sound, etc.</p>
+			</main>
+			
+			<div class="home-side">
+			</div>
+		</div>
+		-->
+		
+		<footer>														<!-- Can hold stats, eventually? -->
+				<div class="stat stat-research"></div>
+				<div class="stat stat-assets"></div>
+				<div class="stat stat-hero"></div>
+		</footer>
+		
+		<script src="javascript.js"></script>							<!-- NEEDS: delay between pages, better resource counters -->
+	<!--</div>-->
+</body>
+</html>
