@@ -45,6 +45,12 @@ header {
 	flex-grow: 1;
 }
 
+#game {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height:100%;
+}
 
 /************************************************************
 ALL
@@ -124,6 +130,11 @@ NAVIGATION
 	background-color: #404040;
 }
 
+.navButton {
+	flex-grow: 1;
+	
+}
+
 #options {
 	width: 100px;
 }
@@ -134,7 +145,7 @@ HOME
 
 
 
-.home-mid {
+#home-mid {
 	height: 100%;
 	width: 70%;
 	float: left;
@@ -198,11 +209,11 @@ HOME
 #text-select {
 	height: 70px;
 	width: 100%;
-	padding: 0px;
-	border: 4px solid #333;
+	padding: 5px;
+	border-top: 2px solid #555;
+	background-color: #111;
 	display: inline-block;
 	position: absolute;
-	background-color: #333;
 	left: 0;
 	bottom: 0;
 }
@@ -282,7 +293,13 @@ HOME
 	margin-top:-50px;
 }
 
-
+#home-tabs {
+	width: 100%;
+	height: 30px;
+	background-color: #333;
+	margin: 5px;
+	padding: 5px;
+}
 
 
 /************************************************************
