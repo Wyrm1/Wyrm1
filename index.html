@@ -14,27 +14,25 @@
 
 </head>																<!-- NEEDS: story -->
 
-<body>							
-	<!--<div id="game">-->
+<body>	
+	<div id="game">
 		<div id="darken"></div>
-	
-	
-	
-	
 		<header>
 			<div class="nav-btn">										<!--[Navigation buttons at top of the screen]-->
-				<button class="navButton active" style="flex-grow:1" onclick="navPage(event, 'homePage')">Home</button>
-				<button class="navButton" id="researchTab" style="flex-grow:1; display:none" onclick="navPage(event, 'researchPage')">Research</button>
-				<button class="navButton" id="engineeringTab" style="flex-grow:1; display:none" onclick="navPage(event, 'engineeringPage')">Engineering</button>
-				<button class="navButton" id="assaultTab" style="flex-grow:1; display:none" onclick="navPage(event, 'deployPage')">Assault</button>
+				<button class="navButton active" onclick="navPage(event, 'homePage')">Home</button>
+				<button class="navButton" id="researchTab" style="display:none" onclick="navPage(event, 'researchPage')">Research</button>
+				<button class="navButton" id="engineeringTab" style="display:none" onclick="navPage(event, 'engineeringPage')">Engineering</button>
+				<button class="navButton" id="assaultTab" style="display:none" onclick="navPage(event, 'deployPage')">Assault</button>
 				<button id="options" onclick="navPage(event, 'options')">Options</button>
 			</div>
 		</header>
 		
 		
-		<div id="homePage" class="navpage" style="display:block">		<!--[View info and advance story here]-->
-			<div class="home-side">										<!--[resource counters]-->
-				<h1>Buttons</h1>										<!-- currently in dev -->
+		<div id="homePage" class="navpage" style="display:block">		<!--[accept contracts and advance story here]-->
+			<div class="home-side">										<!--[contracts]-->
+				<div class="home-divc" id="easy-c"></div>
+				<div class="home-divc" id="medi-c"></div>
+				<div class="home-divc" id="hard-c"></div>				<!-- very much in dev -->
 				<button class="fullButton" onclick="upgradeNav(event, 'researchTab')" style="display:block">Clear Research Labs</button>
 				<button class="fullButton" onclick="upgradeNav(event, 'engineeringTab')" style="display:block">Repair Old Factory</button>
 				<button class="fullButton" onclick="upgradeNav(event, 'assaultTab')" style="display:block">Fire up War Machines</button>
@@ -42,66 +40,79 @@
 			</div>
 			
 			
-			<main class="home-mid">										<!--[Chat menu]-->
-				<div id="text-box">
-				</div>
-				
+			<main id="home-mid">				<!--[Chat menu]-->
+				<div id="home-tabs"></div>
+				<div id="text-box"></div>
 				<div id="text-select">									<!--[text selection menu.]-->
+					<!--
 					<button onclick="toggleTextOptions()" id="textSelectButton">Reply...</button>-
-					<div id="textOptions" class="textOptions">			<!-- Need to allow for auto-customization -->
+					
+					<div id="textOptions" class="textOptions">			<!-- Need to allow for auto-customization --
 						<button onclick="sendText('dragonText', 'Test')">Test</button>
 						<button onclick="sendText('dragonText', 'Hello')">Hello</button>
 						<button onclick="sendText('dragonText', 'zzz')">Sarcastic</button> 
-					</div>
+					</div>-->
 				</div>
 			</main>
 			
-			<div class="home-side">
+			<div class="home-side">				<!--[buttons and stuff]--><!--
 				<div class="home-terminal">
 					<p>Dragon > </p>
 				</div>
+				-->
 			</div>
 		</div>
 		
 		<div id="researchPage" class="navpage" style="display:none">	<!--[research and upgrade tech here]-->
 			
 			<main class="res-mid">										<!--[tech 'tree']-->
-				<h1>Research center</h1>
+				<div class="res-div" id="res-T0"></div>
+				<div class="res-sep" id="res-D0"></div>			<!--End Tutorial-->			
+				<div class="res-div" id="res-T1"></div>
+				<div class="res-sep" id="res-D1"></div>			<!--Engineering-->
+				<div class="res-div" id="res-T2"></div>
+				<div class="res-sep" id="res-D2"></div>			<!--Deploy-->
+				<div class="res-div" id="res-T3"></div>
+				<div class="res-sep" id="res-D3"></div>			<!--MK2-->
+				<div class="res-div" id="res-T4"></div>
+				<div class="res-sep" id="res-D4"></div>			<!--MK3-->
+				<div class="res-div" id="res-T5"></div>
+				<div class="res-sep" id="res-D5"></div>			<!--Birdcage-->
+				<div class="res-div" id="res-T6"></div>
+				<div class="res-sep" id="res-D6"></div>			<!--Freedom-->
+				<div class="res-div" id="res-T7"></div>			<!--Save the world-->
+				<div id="res-secret"></div>
 			</main>
 			
 			<div class="res-side">										<!-- NEEDS: click-and-drag scrolling, clickable buttons, connected unlocks, multiple tabs, 60/40 panels -->
-				<h1>Research</h1>										<!-- To unlock each page you must complete X upgrades from previous page -->
-				<p>This is where you develop new technology</p>			<!--[research info]-->
+				<div id="res-info">
+					<div id="res-lab"></div>
+					<div id="res-factory"></div>
+				</div>
 			</div>
 			
 		</div>
 		
 		<div id="engineeringPage" class="navpage" style="display:none">	<!--[Build and customize suits here]-->
 			<div class="eng-side">										<!--[Current suit info]-->
-				<h1>Engineering</h1>									<!-- NEEDS: calculations of current stats -->
-				<p>This is where you add new tech to suits</p>
+				<div class="eng-T1"></div>
+				<div class="eng-T2"></div>
+				<div class="eng-T3"></div>
 			</div>
 			
 			<main class="eng-mid">										<!--[suit GUI. drag and drop parts onto suit here]-->
-				<h1>Center</h1>											<!-- NEEDS: background, drag/drop code, lower suit selection panel -->
+				<div class="eng-customize"></div>				<!-- NEEDS: background, drag/drop code, lower suit selection panel -->
+				<div class="eng-stats"></div>
 			</main>
 			
 			<div class="eng-side">										<!--[parts selection]-->
+				<div class="eng-upgrades"></div>
+				<div class="eng-description"></div>
 			</div>														<!-- NEEDS: parts, drag/drop code, lower parts description panel -->
 		</div>
 		
 		<div id="deployPage" class="navpage" style="display:none">		<!--[deploy suits and respond to threats here]-->
-			<div class="dpl-side">										<!-- Need to figure out good combat system. Could use dark room system -->
-				<h1>Assault</h1>
-				<p>This is where you lead attacks on villains and endbringers</p>
-			</div>
-			
-			<main class="dpl-mid">
-				<h1>Assault</h1>
-			</main>
-			
-			<div class="dpl-side">
-			</div>
+			<main class="dpl-map"></main>								<!--  Metal gear deploy system -->
 		</div>
 		<!--
 		<div id="options" class="navpage" style="display:none">			<!--[Change options and themes here]->
@@ -121,12 +132,11 @@
 		-->
 		
 		<footer>														<!-- Can hold stats, eventually? -->
-				<div class="stat stat-research"></div>
-				<div class="stat stat-assets"></div>
-				<div class="stat stat-hero"></div>
+			<div class="stat stat-research"></div>
+			<div class="stat stat-assets"></div>
+			<div class="stat stat-hero"></div>
 		</footer>
-		
-		<script src="javascript.js"></script>							<!-- NEEDS: delay between pages, better resource counters -->
-	<!--</div>-->
+	</div>
+	<script src="javascript.js"></script>							<!-- NEEDS: delay between pages, better resource counters -->
 </body>
 </html>
