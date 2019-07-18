@@ -5,63 +5,61 @@
 	<title>Wyrm</title>
 <!--[icon in tab]-->
 	<link rel="icon" href="icon.png">
-<!--[Reference to stylesheet]-->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css"> 
-	<link rel="stylesheet" href="stylesheet.css"> 
-<!--[define character set]-->
+<!-- [define character set] -->
 	<meta charset="UTF-8">
 <!--[allows browser to auto-set view width]-->
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--[Reference to stylesheets]-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+	<link rel="stylesheet" href="stylesheet.css"> 							<!-- NEEDS: delay between pages, better resource counters -->
 
-</head>																<!-- NEEDS: story -->
+</head>																<!-- NEEDS: story, etc. -->
 
-<body>	
-	<div id="game">
-		<div id="darken"></div>
-		<header>
-			<div class="nav-btn w3-bar w3-black">										<!--[Navigation buttons at top of the screen]-->
-				<button class="w3-bar-item navButton active" onclick="navPage(event, 'homePage')">Home</button>
-				<button class="w3-bar-item navButton" id="researchTab" style="display:none" onclick="navPage(event, 'researchPage')">Research</button>
-				<button class="w3-bar-item navButton" id="engineeringTab" style="display:none" onclick="navPage(event, 'engineeringPage')">Engineering</button>
-				<button class="w3-bar-item navButton" id="assaultTab" style="display:none" onclick="navPage(event, 'deployPage')">Assault</button>
-				<button id="w3-bar-item options" onclick="navPage(event, 'options')">Options</button>
+<body>
+	<div class="w3-container">			<!--Needs: save system, themes-->
+		<div id="optionsMenu" class="w3-modal">
+			<div class="w3-modal-content">
+				<div class="w3-container">
+					<span onclick="$('#optionsMenu').hide();" class="w3-button w3-display-topright">&times;</span>
+					<p>Some text. Some text. Some text.</p>
+					<p>Some text. Some text. Some text.</p>
+				</div>
 			</div>
-		</header>
+		</div>
+	</div>
+	<div id="game">
+		<div class="nav-btn">										<!--[Navigation buttons at top of the screen]-->
+			<button class="navButton active" onclick="navPage(event, 'homePage')">Home</button>
+			<button class="navButton hidden" id="researchTab" onclick="navPage(event, 'researchPage')">Research</button>
+			<button class="navButton hidden" id="engineeringTab" onclick="navPage(event, 'engineeringPage')">Engineering</button>
+			<button class="navButton hidden" id="assaultTab" onclick="navPage(event, 'deployPage')">Assault</button>
+			<button id="options" onclick="$('#optionsMenu').show();">Options</button>
+		</div>
 		
 		
 		<div id="homePage" class="navpage" style="display:block">		<!--[accept contracts and advance story here]-->
-			<div class="home-side">										<!--[contracts]-->
+			<div class="home-side">										<!--[contracts - very much in dev]-->
 				<div class="home-divc" id="easy-c"></div>
 				<div class="home-divc" id="medi-c"></div>
-				<div class="home-divc" id="hard-c"></div>				<!-- very much in dev -->
-				<button class="fullButton" onclick="upgradeNav(event, 'researchTab')" style="display:block">Clear Research Labs</button>
-				<button class="fullButton" onclick="upgradeNav(event, 'engineeringTab')" style="display:block">Repair Old Factory</button>
-				<button class="fullButton" onclick="upgradeNav(event, 'assaultTab')" style="display:block">Fire up War Machines</button>
-				<button class="fullButton" onclick="research.income++" style="display:block">Faster research</button>
+				<div class="home-divc" id="hard-c"></div>
+				<button class="fullButton" onclick="$('#researchTab').show();$(this).hide();">Clear Research Labs</button>
+				<button class="fullButton" onclick="$('#engineeringTab').show();$(this).hide();">Repair Old Factory</button>
+				<button class="fullButton" onclick="$('#assaultTab').show();$(this).hide();">Fire up War Machines</button>
+				<button class="fullButton" onclick="research.income++">Faster research</button>
 			</div>
 			
 			
 			<main id="home-mid">				<!--[Chat menu]-->
 				<div id="home-tabs"></div>
 				<div id="text-box"></div>
-				<div id="text-select">									<!--[text selection menu.]-->
-					<!--
-					<button onclick="toggleTextOptions()" id="textSelectButton">Reply...</button>-
-					
-					<div id="textOptions" class="textOptions">			<!-- Need to allow for auto-customization --
-						<button onclick="sendText('dragonText', 'Test')">Test</button>
-						<button onclick="sendText('dragonText', 'Hello')">Hello</button>
-						<button onclick="sendText('dragonText', 'zzz')">Sarcastic</button> 
-					</div>-->
+				<div id="text-select">									<!--[text selection menu - needs dynamic buttons]-->
+					<button class="fullButton" onclick="reply('dragonText', 'Test')">Test</button>
+					<button class="fullButton" onclick="reply('dragonText', 'Hello')">Hello</button>
+					<button class="fullButton" onclick="reply('dragonText', 'zzz')">Sarcastic</button> 
 				</div>
 			</main>
 			
 			<div class="home-side">				<!--[buttons and stuff]-->
-				<!--
-				<div class="home-terminal">
-					<p>Dragon > </p>
-				</div>
-				-->
 			</div>
 		</div>
 		
@@ -116,22 +114,6 @@
 		<div id="deployPage" class="navpage" style="display:none">		<!--[deploy suits and respond to threats here]-->
 			<main class="dpl-map"></main>								<!--  Metal gear deploy system -->
 		</div>
-		<!--
-		<div id="options" class="navpage" style="display:none">			<!--[Change options and themes here]->
-			<div class="home-side">										<!-- NEEDS: save system, different themes, other options ->
-				<h1>Statistics</h1>										<!-- can just open up popup, rather than a full-screen display ->
-				<p>stats...</p>
-			</div>
-			
-			<main class="home-mid">
-			<h1>Options</h1>
-			<p>sound, etc.</p>
-			</main>
-			
-			<div class="home-side">
-			</div>
-		</div>
-		-->
 		
 		<footer>														<!-- Can hold stats, eventually? -->
 			<div class="stat stat-research"></div>
@@ -139,6 +121,10 @@
 			<div class="stat stat-hero"></div>
 		</footer>
 	</div>
-	<script src="javascript.js"></script>							<!-- NEEDS: delay between pages, better resource counters -->
+	
+	
+<!--[Reference to javascript]-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="javascript.js"></script>
 </body>
 </html>
