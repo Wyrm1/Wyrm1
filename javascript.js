@@ -12,7 +12,7 @@ All
 Navigation
 ****************************************/
 
-function navPage(evt, page) {	//Allows nav buttons to navigate to the correct page
+function navPage(evt, page) {	//code for nav buttons
 	//var i, navpage, navbutton;
 	$('.navpage').hide();
 	$('#' + page).show();
@@ -20,8 +20,7 @@ function navPage(evt, page) {	//Allows nav buttons to navigate to the correct pa
 	$(evt.target).addClass('active');
 }
 
-$('body').click(function (event) 
-{
+$('body').click(function (event) {
    if($(event.target).closest('#optionsMenu').length && $(event.target).is('#optionsMenu')) {
      $("#optionsMenu").hide();		//close options menu if you click outside of it
    }     

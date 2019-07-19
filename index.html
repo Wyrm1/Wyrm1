@@ -39,13 +39,15 @@
 		
 		<div id="homePage" class="navpage" style="display:block">		<!--[accept contracts and advance story here]-->
 			<div class="home-side">										<!--[contracts - very much in dev]-->
-				<div class="home-divc" id="easy-c"></div>
+				<div class="home-divc" id="easy-c">
+				<button class="squareButton" onclick="$('#researchTab').show();$(this).hide();"><span>Clear Research Labs</span></button>
+				<button class="squareButton" onclick="$('#engineeringTab').show();$(this).hide();"><span>Repair Old Factory</span></button>
+				<button class="squareButton" onclick="$('#assaultTab').show();$(this).hide();"><span>Launch satellites</span></button>
+				
+				
+				</div>
 				<div class="home-divc" id="medi-c"></div>
 				<div class="home-divc" id="hard-c"></div>
-				<button class="fullButton" onclick="$('#researchTab').show();$(this).hide();">Clear Research Labs</button>
-				<button class="fullButton" onclick="$('#engineeringTab').show();$(this).hide();">Repair Old Factory</button>
-				<button class="fullButton" onclick="$('#assaultTab').show();$(this).hide();">Fire up War Machines</button>
-				<button class="fullButton" onclick="research.income++">Faster research</button>
 			</div>
 			
 			
